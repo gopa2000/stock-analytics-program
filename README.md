@@ -1,5 +1,6 @@
 # GE1331 - Problem Solving Made Easy
-# stock-analytics-program
+stock-analytics-program
+--------------
 
 Yeah, this is pretty much all I've done so far. I'll keep on working and updating.
 
