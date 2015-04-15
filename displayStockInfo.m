@@ -4,12 +4,13 @@ function [] = displayStockInfo(stock)
     
     %% Still gotta figure this out.
     %% Name = varname('stock');
-    AnnualReturn = (stock(end).AdjClose/stock(1).AdjClose)-1;
-    AvgDailyReturn = (sum([stock.DailyReturns]))/252;
-    AvgAnnualisedReturn = AvgDailyReturn*252;
-    DailyVolatility = std([stock.DailyReturns]);
-    AnnualisedVolatility = sqrt(252)*DailyVolatility;
-    SharpeRatio = (AvgAnnualisedReturn-0.005)/AnnualisedVolatility;
+    TradingDays = length(stock);
+    AnnualReturn = ((stock(end).AdjClose/stock(1).AdjClose)-1)*100;
+    AvgDailyReturn = ((sum([stock.DailyReturns]))/TradingDays)*100;
+    AvgAnnualisedReturn = (AvgDailyReturn*TradingDays);
+    DailyVolatility = (std([stock.DailyReturns]))*100;
+    AnnualisedVolatility = (sqrt(TradingDays)*DailyVolatility);
+    SharpeRatio = ((AvgAnnualisedReturn)-0.005)/AnnualisedVolatility;
     
     clc;
     %% fprintf('Name:\t%s\n',Name);
