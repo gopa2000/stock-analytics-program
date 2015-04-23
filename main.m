@@ -12,8 +12,11 @@
 %
 
 % Input individual stock values:
-HSI = initStock('hsi.csv');
-MTR = initStock('mtr.csv');
+HSI = struct('Data', initStock('hsi.csv')); 
+HSI.Info = getStockInfo(HSI.Data);
+
+MTR = struct('Data', initStock('mtr.csv'));
+MTR.Info = (MTR.Data);
 %% Not a part of HKSE.
 %% HSBC = initStock('hsbc.csv');
 
@@ -47,13 +50,13 @@ while(prgEnd == false)
             opt1 = input('Enter index number: ');
             switch(opt1)
                 case 1
-                    displayStockInfo(HSI);
+                    displayStockInfo(HSI.Info);
                 case 2
-                    displayStockInfo(MTR);
+                    displayStockInfo(MTR.Info);
                 case 3
-                    displayStockInfo(HSBC);
+                    displayStockInfo(HSBC.Info);
                 case 4
-                    displayStockInfo(SHK);
+                    displayStockInfo(SHK.Info);
             end
         case 2
             
