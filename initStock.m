@@ -10,15 +10,17 @@ function [StockData] = initStock(inputFile)
         
     % Making StockDataScan structure as return value from the function. It will
     % contain all the information pertaining to the given stock.
-    
-    for i = 1:length(Date)
+    n = length(Date);
+    j=n;
+    for i = 1:n
         % Daily returns begins from second object. Initialising first to
         % zero.
         if i == 1
-            StockData(i,1) = struct('Date', Date(i), 'Open', Open(i), 'High', High(i), 'Low', Low(i), 'Close', Close(i), 'Volume', Volume(i), 'AdjClose', AdjClose(i), 'DailyReturns',0);
+            StockData(i,1) = struct('Date', Date(j), 'Open', Open(j), 'High', High(j), 'Low', Low(j), 'Close', Close(j), 'Volume', Volume(j), 'AdjClose', AdjClose(j), 'DailyReturns',0);
         else
-            StockData(i,1) = struct('Date', Date(i), 'Open', Open(i), 'High', High(i), 'Low', Low(i), 'Close', Close(i), 'Volume', Volume(i), 'AdjClose', AdjClose(i), 'DailyReturns', (AdjClose(i)/AdjClose(i-1)-1));
+            StockData(i,1) = struct('Date', Date(j), 'Open', Open(j), 'High', High(j), 'Low', Low(j), 'Close', Close(j), 'Volume', Volume(j), 'AdjClose', AdjClose(j), 'DailyReturns', (AdjClose(j)/AdjClose(j+1)-1));
         end
-    end    
+        j=j-1;
+    end
 end
 
