@@ -37,9 +37,9 @@ while(prgEnd == false)
     disp('------------------------- User Menu --------------------------');
     disp('[1] Display Stocks and Stock Information');
     disp('[2] Capital Market Line');
-    disp('[4] Correlation');
-    disp('[5] Efficient-Frontier');
-    disp('--------------------------------------------------------------');
+    disp('[4] Portfolio Optimisation');
+    disp('[5] Efficiency-Frontier');
+    disp('---------------th-----------------------------------------------');
 
     opt = input('Enter option (1-5), 0 to exit\n');
     
