@@ -12,28 +12,30 @@
 inp = {'csv/Cathay Pacifc (HK0293).csv'; 
     'csv/CLP Holding (HK0002).csv'; 
     'csv/MTR Corp (HK0066).csv'; 
-    'csv/hsi.csv'; 'csv/AIA (HK1299).csv'; 
+    'csv/AIA (HK1299).csv'; 
     'csv/ICBC (HK1398).csv'; 
     'csv/Tencent (HK0700).csv'; 
     'csv/Lenovo Group (HK0992).csv'; 
     'csv/Hutchison (HK0013).csv'; 
     'csv/Swire Pacific (HK0019).csv'; 
-    'csv/Cheung Kong (HK0001) Stock.csv'};
+    'csv/Cheung Kong (HK0001) Stock.csv';
+    'csv/Hang Seng Index.csv'};
 
 % Input individual stock values:
 global HSI MTR CLP CPC AIA HUT ICB TEN LEN SWP CGL;
 CPC = initStock(inp{1});
 CLP = initStock(inp{2});
 MTR = initStock(inp{3});
-HSI = initStock(inp{4});
-AIA = initStock(inp{5});
-ICB = initStock(inp{6});
-TEN = initStock(inp{7});
-LEN = initStock(inp{8});
-HUT = initStock(inp{9});
-SWP = initStock(inp{10});
-CGL = initStock(inp{11});
-clear inp;
+AIA = initStock(inp{4});
+ICB = initStock(inp{5});
+TEN = initStock(inp{6});
+LEN = initStock(inp{7});
+HUT = initStock(inp{8});
+SWP = initStock(inp{9});
+CGL = initStock(inp{10});
+HSI = initStock(inp{11});
+
+%% clear inp;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 list = {'CPC';'CLP';'MTR';'AIA';'ICB';'TEN';'LEN';'HUT';'SWP';'CGL'};
@@ -45,6 +47,7 @@ list = {'CPC';'CLP';'MTR';'AIA';'ICB';'TEN';'LEN';'HUT';'SWP';'CGL'};
 prgEnd = false;
 
 while(prgEnd == false)
+    clc;
     disp('Stock Analytics Program - GE1331: Problem Solving Made Easy');
     disp('------------------------- User Menu --------------------------');
     disp('[1] Display Stocks and Stock Information');
@@ -58,18 +61,7 @@ while(prgEnd == false)
     switch(opt)
         case 1
             % Display Stocks and their Information
-            displayStocks();
-            opt1 = input('Enter index number: ');
-            switch(opt1)
-                case 1
-                    displayStockInfo(HSI.Info);
-                case 2
-                    displayStockInfo(MTR.Info);
-                case 3
-                    displayStockInfo(HSBC.Info);
-                case 4
-                    displayStockInfo(SHK.Info);
-            end
+            displayStocks(inp,list);
         case 2
             cml(HSI.Info)
         case 3

@@ -12,8 +12,8 @@ function [] = cml(HSI)
     figure
     plot(Risk,Return);
     title('Capital Market Line');
-    xlabel('Risk');
-    ylabel('Return');
+    xlabel('Risk(in %)');
+    ylabel('Return(in %)');
     grid on;
     grid minor;
     
