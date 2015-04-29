@@ -17,10 +17,11 @@ function [x y] = efficiencyFrontier()
         else if i == 11
             x(i) = pRis1;
         else
-            x(i) = sqrt((pu(i)^2)*((pRis1)^2) + ((od(i)^2)*(pRis2^2))+(2*od(i)*pRis1*pu(i)*pRis2*0.28));
+            x(i) = sqrt((pu(i)^2)*((pRis1)^2) + ((od(i)^2)*(pRis2^2))+(2*od(i)*pRis1*pu(i)*pRis2*0.11));
         end
     end
-   
+%     x = x.*100;
+%     y = y.*100;
     %figure
     plot(x,y);
     xlabel('Risk');

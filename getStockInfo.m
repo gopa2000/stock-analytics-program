@@ -3,8 +3,8 @@ function calData = getStockInfo(stock)
     % 1/4/15
     Name = inputname(1);
     TradingDays = length(stock);
-    AnnualReturn = ((stock(end).AdjClose/stock(1).AdjClose)-1)*100;
-    AvgDailyReturn = ((sum([stock.DailyReturns]))/TradingDays)*100;
+    AnnualReturn = ((stock(end).AdjClose/stock(1).AdjClose)-1);
+    AvgDailyReturn = ((sum([stock.DailyReturns]))/TradingDays);
     AvgAnnualisedReturn = (AvgDailyReturn*TradingDays);
     DailyVolatility = (std([stock.DailyReturns]));
     AnnualisedVolatility = (sqrt(TradingDays)*DailyVolatility);

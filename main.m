@@ -51,11 +51,15 @@ prgEnd = false;
 while(prgEnd == false)
     clc;
     disp('Stock Analytics Program - GE1331: Problem Solving Made Easy');
+    disp('-----------------------------------------------------------');
+    disp(' ');
+    disp('-.- Market Capitalization Benchmark Control Optimizer -.-');
+    disp(' ');
     disp('------------------------- User Menu --------------------------');
     disp('[1] Display Stocks and Stock Information');
     disp('[2] Capital Market Line');
     disp('[3] Portfolio Optimisation');
-    disp('[4] Efficiency-Frontier');
+    disp('[4] Plots');
     disp('--------------------------------------------------------------');
 
     opt = input('Enter option (1-5), 0 to exit\n');
@@ -74,9 +78,9 @@ while(prgEnd == false)
             end
         case 4
             if Portfolio(1).Ratio ~= 0
-                efficiencyFrontier();
+                graphib();
             else
-                fprintf('\n\nPortfolio needs to be generated first. Try option 3.\n');
+                fprintf('\nPortfolio needs to be generated first. Try option 3.\n');
                     disp('Press any key to continue.');
                     pause('on');
                     pause;

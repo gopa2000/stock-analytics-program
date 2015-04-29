@@ -1,4 +1,4 @@
-function [] = cml(HSI)
+function [Risk Return] = cml(HSI)
     AV = HSI.AnnualisedVolatility;
     MarketWeight = 0:0.1:1.5;
     RiskFreeWeight = 1:-0.1:-0.5;
@@ -9,13 +9,13 @@ function [] = cml(HSI)
         Return(i) = (MarketWeight(i)*AV)+(RiskFreeWeight(i)*0.5);
     end
     
-    figure
+    Return = sort(Return);
+    % figure
     plot(Risk,Return);
     title('Capital Market Line');
     xlabel('Risk(in %)');
     ylabel('Return(in %)');
     grid on;
     grid minor;
-    
     
 end
