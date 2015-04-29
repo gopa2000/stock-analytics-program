@@ -51,9 +51,10 @@ prgEnd = false;
 while(prgEnd == false)
     clc;
     disp('Stock Analytics Program - GE1331: Problem Solving Made Easy');
-    disp('-----------------------------------------------------------');
+    disp('--------------------------------------------------------------');
     disp(' ');
-    disp('-.- Market Capitalization Benchmark Control Optimizer -.-');
+    disp('-.-.-.- Market Capitalization Benchmark Control -.-.-.-');
+    disp('-.-.-.-            Portfolio Optimizer          -.-.-.-');
     disp(' ');
     disp('------------------------- User Menu --------------------------');
     disp('[1] Display Stocks and Stock Information');
