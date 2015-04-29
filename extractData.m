@@ -6,7 +6,7 @@ function [StockData] = extractData(inputFile)
 
     % Using textread to extract field values from CSV file.
     
-    [Date, Open, High, Low, Close, Volume, AdjClose] = textread(inputFile, '%s %.2f %.2f %.2f %.2f %d %.5f','headerlines',1,'delimiter',',');
+    [Date, Open, High, Low, Close, Volume, AdjClose] = textread(inputFile, '%s %.2f %.2f %.2f %.2f %d %.8f','headerlines',1,'delimiter',',');
         
     % Making StockDataScan structure as return value from the function. It will
     % contain all the information pertaining to the given stock.

@@ -7,7 +7,7 @@ function [] = displayStocks(inp,list)
         for i = 1:11
             fprintf('%d.\t%s\n',i,inp{i}(5:end-4));
         end
-        fprintf('0. \tReturn to Main Menu\n');
+        fprintf('\n0. \tReturn to Main Menu\n');
         opt = input('Enter index number: ');
         switch(opt)
             case 1
@@ -31,7 +31,7 @@ function [] = displayStocks(inp,list)
             case 10
                 displayStockInfo(eval(sprintf('%s.Info',list{10})))
             case 11
-                displayStockInfo(HSI) 
+                displayStockInfo(HSI.Info) 
             case 0
                 loop = 1;
             otherwise

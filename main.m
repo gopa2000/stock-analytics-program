@@ -18,11 +18,11 @@ inp = {'csv/Cathay Pacifc (HK0293).csv';
     'csv/Lenovo Group (HK0992).csv'; 
     'csv/Hutchison (HK0013).csv'; 
     'csv/Swire Pacific (HK0019).csv'; 
-    'csv/Cheung Kong (HK0001) Stock.csv';
+    'csv/Wharf Holdings (HK0004).csv';
     'csv/Hang Seng Index.csv'};
 
 % Input individual stock values:
-global HSI MTR CLP CPC AIA HUT ICB TEN LEN SWP CGL;
+global HSI MTR CLP CPC AIA HUT ICB TEN LEN SWP WHS stockWeight Portfolio;
 CPC = initStock(inp{1});
 CLP = initStock(inp{2});
 MTR = initStock(inp{3});
@@ -32,13 +32,15 @@ TEN = initStock(inp{6});
 LEN = initStock(inp{7});
 HUT = initStock(inp{8});
 SWP = initStock(inp{9});
-CGL = initStock(inp{10});
+WHS = initStock(inp{10});
 HSI = initStock(inp{11});
+stockWeight = genWeight();
+Portfolio = struct('Return',zeros(252,1),'Risk',zeros(252,1),'Ratio',zeros(252,1),'Set',zeros(252,5),'Weight',zeros(252,1));
 
 %% clear inp;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-list = {'CPC';'CLP';'MTR';'AIA';'ICB';'TEN';'LEN';'HUT';'SWP';'CGL'};
+list = {'CPC';'CLP';'MTR';'AIA';'ICB';'TEN';'LEN';'HUT';'SWP';'WHS'};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -67,17 +69,16 @@ while(prgEnd == false)
         case 3
             portfolioOptimisation(list);
         case 4
-
+            efficiencyFrontier(eval(list{Portfolio(1).Set(1)}),eval(list{Portfolio(1).Set(2)}),eval(list{Portfolio(1).Set(3)}),eval(list{Portfolio(1).Set(4)}),eval(list{Portfolio(1).Set(5)}));
         case 5
 
         case 0
             disp('Thank you for using our Stock Analytics Program');
             close all;
+            clear opt;
             prgEnd = true;
-
         otherwise
             disp('Invalid option');
-
     end
 end
 

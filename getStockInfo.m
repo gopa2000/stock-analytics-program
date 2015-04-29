@@ -6,7 +6,7 @@ function calData = getStockInfo(stock)
     AnnualReturn = ((stock(end).AdjClose/stock(1).AdjClose)-1)*100;
     AvgDailyReturn = ((sum([stock.DailyReturns]))/TradingDays)*100;
     AvgAnnualisedReturn = (AvgDailyReturn*TradingDays);
-    DailyVolatility = (std([stock.DailyReturns]))*100;
+    DailyVolatility = (std([stock.DailyReturns]));
     AnnualisedVolatility = (sqrt(TradingDays)*DailyVolatility);
     SharpeRatio = ((AvgAnnualisedReturn)-0.005)/AnnualisedVolatility;
     
