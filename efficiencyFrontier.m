@@ -21,7 +21,7 @@ function [x y] = efficiencyFrontier()
         end
     end
    
-    figure
+    %figure
     plot(x,y);
     xlabel('Risk');
     ylabel('Return');

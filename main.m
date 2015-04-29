@@ -67,9 +67,20 @@ while(prgEnd == false)
         case 2
             cml(HSI.Info)
         case 3
-            portfolioOptimisation(list);
+            if Portfolio(1).Ratio ~= 0
+                displayPortfolio(list);
+            else
+                portfolioOptimisation(list);
+            end
         case 4
-            efficiencyFrontier(eval(list{Portfolio(1).Set(1)}),eval(list{Portfolio(1).Set(2)}),eval(list{Portfolio(1).Set(3)}),eval(list{Portfolio(1).Set(4)}),eval(list{Portfolio(1).Set(5)}));
+            if Portfolio(1).Ratio ~= 0
+                efficiencyFrontier();
+            else
+                fprintf('\n\nPortfolio needs to be generated first. Try option 3.\n');
+                    disp('Press any key to continue.');
+                    pause('on');
+                    pause;
+            end
         case 5
 
         case 0
@@ -78,7 +89,8 @@ while(prgEnd == false)
             clear opt;
             prgEnd = true;
         otherwise
-            disp('Invalid option');
-    end
+            fprintf('Invalid option');
+    end  
 end
+clear prgEnd;
 
